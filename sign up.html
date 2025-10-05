@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RecipeHub - Sign Up</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4fdf4;
+      margin: 0;
+      padding: 0;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    header {
+      background: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+   
+    .container {
+      width: 90%;
+      max-width: 1100px;
+     margin: auto;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .nav a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .container1 {
+      max-width: 400px;
+      margin: 50px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      background: #2e7d32;
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #1b5e20;
+    }
+
+    .thank-you {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+      background: #f1f1f1;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>RecipeHub</h1>
+  </header>
+
+  <div class="container1">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Enter username" required pattern="[A-Za-z0-9]{3,20}" title="3-20 letters or numbers">
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter password" required minlength="6">
+
+      <button type="submit">Sign Up</button>
+
+      <p>already have an account, <a href="./login.html">Login</a>.</p>
+    </form>
+
+    <div class="thank-you" id="signupThankYou">
+      Account created successfully (simulated)!
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 RecipeHub. All rights reserved.
+  </footer>
+
+  <script>
+    const signupForm = document.getElementById('signupForm');
+    const signupThankYou = document.getElementById('signupThankYou');
+
+    signupForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(!signupForm.checkValidity()){
+        signupForm.reportValidity();
+        return;
+      }
+      setTimeout(() => {
+        signupThankYou.style.display = 'block';
+        signupForm.reset();
+      }, 500);
+    });
+  </script>
+</body>
+</html>
