@@ -123,7 +123,7 @@
     <div class="container nav">
       <h1 class="logo">Recipe Hub</h1>
       <nav>
-        <a href="index.html">Home</a>
+        <a href="../index.html">Home</a>
         <a href="recipe.html">Recipes</a>
         <a href="contact us.html">Contact Us</a>
       </nav>
@@ -159,19 +159,17 @@
     const thankYou = document.getElementById('thankYou');
 
     form.addEventListener('submit', function(e) {
-      e.preventDefault(); // prevent actual form submission
+      e.preventDefault(); 
 
-      // HTML5 validation check
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
       }
 
-      // Simulate sending email
       setTimeout(() => {
         thankYou.style.display = 'block';
-        form.reset(); // clear the form
-      }, 500); // delay to mimic sending
+        form.reset(); 
+      }, 500); 
     });
   </script>
 </body>
