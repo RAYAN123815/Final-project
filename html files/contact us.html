@@ -188,23 +188,35 @@
     &copy; 2025 RecipeHub. All rights reserved.
   </footer>
 
-  <script>
-    const form = document.getElementById('contactForm');
-    const thankYou = document.getElementById('thankYou');
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  emailjs.init("MPGXIP9Ede3Z9fSYu"); // Replace with your public key
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault(); 
+  const form = document.getElementById('contactForm');
+  const thankYou = document.getElementById('thankYou');
 
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
 
-      setTimeout(() => {
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    emailjs.sendForm('service_t7yap0v', 'template_8uyux2n', form)
+      .then(() => {
+        thankYou.textContent = "✅ Thank you! Your message has been sent successfully.";
+        thankYou.style.background = '#16a34a';
         thankYou.style.display = 'block';
-        form.reset(); 
-      }, 500); 
-    });
-  </script>
+        form.reset();
+      }, (error) => {
+        thankYou.textContent = "❌ Oops! Something went wrong. Please try again later.";
+        thankYou.style.background = '#dc2626';
+        thankYou.style.display = 'block';
+        console.error('EmailJS error:', error);
+      });
+  });
+</script>
+
 </body>
 </html>
