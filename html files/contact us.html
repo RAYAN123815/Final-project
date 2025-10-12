@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,30 +17,61 @@
       margin: 0;
       padding: 0;
     }
-    header {
-      background: #ffffff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-   
+    
+
+/* --- FIXED NAVBAR ALIGNMENT --- */
+.navbar {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.container.nav {
+  display: flex;
+  justify-content: space-between; /* logo left, nav right */
+  align-items: center;            /* vertically centered */
+  padding: 15px 40px;
+}
+
+/* The nav section (links + buttons) */
+.navbar nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* keep all nav items to the right */
+  gap: 25px; /* space between links and buttons */
+}
+
+/* Links styling */
+.navbar nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Navbar buttons ONLY */
+.navbar button {
+  width: auto !important; /* override the form's 100% width */
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.navbar button:hover {
+  background-color: #0056b3;
+}
+
     .container {
       width: 90%;
       max-width: 1100px;
      margin: auto;
     }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 0;
-    }
-
-    .nav a {
-      margin-left: 1rem;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
+    
     .logo {
       font-size: 1.2rem;
       font-weight: bold;
@@ -119,13 +151,15 @@
   </style>
 </head>
 <body>
- <header>
+ <header class="navbar">
     <div class="container nav">
       <h1 class="logo">Recipe Hub</h1>
       <nav>
-        <a href="/index.html">Home</a>
+        <a href="../index.html">Home</a>
         <a href="recipe.html">Recipes</a>
         <a href="contact us.html">Contact Us</a>
+        <a href="../Authentiction for BQ final project/sign up.html"><button>Register</button></a>
+        <a href="../Authentiction for BQ final project/login.html"><button>Login</button></a>
       </nav>
     </div>
   </header>

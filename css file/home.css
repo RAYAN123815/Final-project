@@ -16,33 +16,69 @@ header {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.container {
-  width: 90%;
-  max-width: 1100px;
-  margin: auto;
+/* --- FIXED NAVBAR ALIGNMENT --- */
+.navbar {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.nav {
+.container.nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* logo left, nav right */
+  align-items: center;            /* vertically centered */
+  padding: 15px 40px;
+}
+
+/* The nav section (links + buttons) */
+.navbar nav {
+  display: flex;
   align-items: center;
-  padding: 1rem 0;
+  justify-content: flex-end; /* keep all nav items to the right */
+  gap: 25px; /* space between links and buttons */
 }
 
-.logo {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-nav a {
-  margin-left: 1rem;
+/* Links styling */
+.navbar nav a {
   text-decoration: none;
   color: #333;
   font-weight: 500;
+  display: inline-flex;
+  align-items: center;
 }
+
+/* Navbar buttons ONLY */
+.navbar button {
+  width: auto !important; /* override the form's 100% width */
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.navbar button:hover {
+  background-color: #0056b3;
+}
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+     margin: auto;
+    }
+    
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
 
 .hero {
   background-image: url('../Home Images/home-image-1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover; /* or contain, or specific size */
+  background-position: center center; /* change this line to position it */
   color: rgb(255, 255, 255);
   text-align: center;
   padding: 8rem 1rem;

@@ -6,39 +6,74 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+header {
+      background: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+/* Navbar container */
+/* --- FIXED NAVBAR ALIGNMENT --- */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    background-color: white;
-    color: black;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.navbar .logo {
-    font-weight: bold;
-    font-size: 1.3rem;
+.container.nav {
+  display: flex;
+  justify-content: space-between; /* logo left, nav right */
+  align-items: center;            /* vertically centered */
+  padding: 15px 40px;
 }
 
-.navbar ul {
-    display: flex;
-    list-style: none;
-    gap: 20px;
+/* The nav section (links + buttons) */
+.navbar nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* keep all nav items to the right */
+  gap: 25px; /* space between links and buttons */
 }
 
-.navbar a {
-    color: #333;
-    text-decoration: none;
-    font-weight: 500;
+/* Links styling */
+.navbar nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
 }
 
-.navbar a.active,
-.navbar a:hover {
-    text-decoration: underline;
+/* Navbar buttons ONLY */
+.navbar button {
+  width: auto !important; /* override the form's 100% width */
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
+.navbar button:hover {
+  background-color: #0056b3;
+}
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+     margin: auto;
+    }
+    
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
 .filter-section {
-    background-color: #2f6c7f;
+    background-image: url('../Recipe Images/recipe-image-11.png');
+    background-repeat: no-repeat;
+    background-size: cover; /* or contain, or specific size */
+    background-position: center center; /* change this line to position it */
     color: white;
     padding: 20px;
 }
@@ -67,6 +102,7 @@
     padding: 40px 20px;
 }
 
+/* --- Recipe Card Hover Animation --- */
 .recipe-card {
     flex: 1 1 300px;
     max-width: 350px;
@@ -75,12 +111,26 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     padding: 15px;
     text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* smooth hover animation */
+    overflow: hidden; /* keeps image inside rounded corners */
 }
 
 .recipe-card img {
     width: 100%;
     border-radius: 10px;
+    transition: transform 0.4s ease; /* smooth zoom effect for image */
 }
+
+/* Hover effect */
+.recipe-card:hover {
+    transform: scale(1.05); /* slightly enlarge the card */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* deeper shadow */
+}
+
+.recipe-card:hover img {
+    transform: scale(1.1); /* zoom image slightly */
+}
+
 
 .recipe-card h3 {
     margin: 10px 0;
@@ -112,6 +162,103 @@
     color: white;
     font-size: 0.9rem;
 }
+
+
+
+/* --- Scroll Animation Base Styles --- */
+.recipe-card {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+/* When visible on screen */
+.recipe-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Optional: Description fade-in delay */
+.recipe-card p {
+    opacity: 0;
+    transition: opacity 0.6s ease 0.3s;
+}
+
+.recipe-card.show p {
+    opacity: 1;
+}
+
+
+
+/* --- Featured Recipes Section --- */
+.featured-recipes {
+  background-color: #f8fafb;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.featured-recipes h2 {
+  font-size: 2rem;
+  color: #224e5e;
+  margin-bottom: 40px;
+}
+
+.featured-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.featured-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.featured-text {
+  padding: 20px;
+}
+
+.featured-text h3 {
+  color: #224e5e;
+  margin-bottom: 10px;
+}
+
+.featured-text p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Hover animation */
+.featured-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.featured-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .featured-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 
 @media (max-width: 768px) {
     .navbar {

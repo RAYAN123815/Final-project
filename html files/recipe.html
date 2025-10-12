@@ -7,16 +7,18 @@
     <link rel="stylesheet" href="../css file/recipe.css">
 </head>
 <body>
-    <header class="navbar">
-        <div class="logo">Recipe Hub</div>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="recipe.html" class="active">Recipes</a></li>
-                <li><a href="contact us.html">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
+   <header class="navbar">
+    <div class="container nav">
+      <h1 class="logo">Recipe Hub</h1>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="recipe.html">Recipes</a>
+        <a href="contact us.html">Contact Us</a>
+        <a href="../Authentiction for BQ final project/sign up.html"><button>Register</button></a>
+        <a href="../Authentiction for BQ final project/login.html"><button>Login</button></a>
+      </nav>
+    </div>
+  </header>
 
     <section class="filter-section">
         <input type="text" placeholder="Search recipes..." class="search-bar">
@@ -92,9 +94,62 @@
             <a href="#">Read More</a>
         </div>
     </section>
+    <section class="featured-recipes">
+  <h2>Chef’s Picks</h2>
+
+  <div class="featured-container">
+
+    <div class="featured-card">
+      <img src="../Recipe Images/recipe-image-1.jpg" alt="Basic Pizza Dough #2">
+      <div class="featured-text">
+        <h3>Basic Pizza Dough #2</h3>
+        <p>This Neapolitan-style dough is light, airy, and crisp — perfect for any homemade pizza. With just a few ingredients and a short rise, it delivers authentic Italian flavor every time.</p>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <img src="../Recipe Images/recipe-image-5.jpg" alt="Japanese Curry">
+      <div class="featured-text">
+        <h3>Japanese Curry</h3>
+        <p>A comforting and mildly spiced curry dish that balances savory and sweet flavors. Served over rice, it’s the ultimate cozy meal for any season.</p>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <img src="../Recipe Images/recipe-image-7.jpg" alt="Honey & Leek Grain Salad">
+      <div class="featured-text">
+        <h3>Honey & Leek Grain Salad</h3>
+        <p>This vibrant salad combines roasted pumpkin, grilled halloumi, and nutty grains with a drizzle of honey-leek dressing — a delightful mix of texture and taste.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
     <footer class="footer">
         <p>© 2025 Recipe Hub. All Rights Reserved.</p>
     </footer>
+    <script>
+  const cards = document.querySelectorAll('.recipe-card');
+
+  function revealCards() {
+    const triggerBottom = window.innerHeight * 0.85; // 85% of screen height
+
+    cards.forEach(card => {
+      const cardTop = card.getBoundingClientRect().top;
+
+      if (cardTop < triggerBottom) {
+        card.classList.add('show');
+      } else {
+        card.classList.remove('show'); // remove if you want it to disappear again when scrolled up
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealCards);
+  window.addEventListener('load', revealCards);
+</script>
+
 </body>
 </html>
