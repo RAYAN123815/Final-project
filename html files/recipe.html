@@ -7,19 +7,18 @@
     <link rel="stylesheet" href="../css file/recipe.css">
 </head>
 <body>
-   <header class="navbar">
-    <div class="container nav">
-      <h1 class="logo">Recipe Hub</h1>
-      <nav>
-        <a href="../index.html">Home</a>
-        <a href="recipe.html">Recipes</a>
-        <a href="contact us.html">Contact Us</a>
-        <a href="../Authentiction for BQ final project/sign up.html"><button>Register</button></a>
-        <a href="../Authentiction for BQ final project/login.html"><button>Login</button></a>
-      </nav>
-    </div>
-  </header>
-
+   <nav>
+      <div class="logo">Recipe Hub</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="recipe.html">Recipes</a></li>
+        <li><a href="contact us.html">Contact Us</a></li>
+      </ul>
+      <div class="nav-buttons">
+        <a href="../Authentiction for BQ final project/login.html"><button class="btn btn-login">Login</button></a>
+        <a href="../Authentiction for BQ final project/sign up.html"><button class="btn btn-signup">Sign Up</button></a>
+      </div>
+    </nav> 
     <section class="filter-section">
         <input type="text" placeholder="Search recipes..." class="search-bar">
         <div class="tags">
@@ -126,10 +125,79 @@
   </div>
 </section>
 
+    <section class="how-it-works">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">Get started in three simple steps</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Browse Recipes</h3>
+          <p>
+            Explore thousands of delicious recipes from our extensive
+            collection. Filter by cuisine, difficulty, or cooking time.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Save Favorites</h3>
+          <p>
+            Create your personal cookbook by bookmarking recipes you love.
+            Access them anytime, anywhere.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Start Cooking</h3>
+          <p>
+            Follow easy step-by-step instructions with videos and tips to create
+            restaurant-quality meals at home.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <footer class="footer">
-        <p>© 2025 Recipe Hub. All Rights Reserved.</p>
+
+     <footer id="contact">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Recipe Hub</h3>
+          <p>
+            Recipe Hub is your ultimate destination for discovering and sharing
+            delicious recipes from around the world. We bring together food
+            lovers and home cooks to create an amazing culinary community.
+          </p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/groups/313139035502837" target="_blank" class="social-icon" title="Facebook">
+              <img src="./Images/home-image-1.jpg" alt="Facebook" />
+            </a>
+            <a href="https://www.instagram.com/recipe_hub_/" target="_blank" class="social-icon" title="Instagram">
+              <img src="./Images/home-image-2.jpg" alt="Instagram" />
+            </a>
+            <a href="https://x.com/recipehub7800" target="_blank" class="social-icon" title="Twitter">
+              <img src="./Images/home-image-3.jpg" alt="Twitter" />
+            </a>
+            <a href="https://www.pinterest.com/recipehubs/" target="_blank" class="social-icon" title="Pinterest">
+              <img src="./Images/home-image-4.jpg" alt="Pinterest" />
+            </a>
+            <a href="https://www.youtube.com/@TheRecipeHub292" target="_blank" class="social-icon" title="YouTube">
+              <img src="./Images/home-image-5.jpg" alt="YouTube" />
+            </a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#recipes">Recipes</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Recipe Hub. All rights reserved. Made with ❤️ for food lovers worldwide.</p>
+      </div>
     </footer>
+
     <script>
   const cards = document.querySelectorAll('.recipe-card');
 
