@@ -8,19 +8,26 @@
 </head>
 <body>
    <nav>
-      <div class="logo">Recipe Hub</div>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="recipe.html">Recipes</a></li>
-        <li><a href="contact us.html">Contact Us</a></li>
-      </ul>
-      <div class="nav-buttons">
-        <a href="../Authentiction for BQ final project/login.html"><button class="btn btn-login">Login</button></a>
-        <a href="../Authentiction for BQ final project/sign up.html"><button class="btn btn-signup">Sign Up</button></a>
-      </div>
-    </nav> 
+  <div class="logo">Recipe Hub</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="recipe.html">Recipes</a></li>
+    <li><a href="contact us.html">Contact Us</a></li>
+  </ul>
+
+ <div class="nav-buttons" id="authButtons">
+  <!-- Login/Signup buttons will be replaced with Logout if user is logged in -->
+  <a href="./Authentiction for BQ final project/login.html"><button class="btn btn-login">Login</button></a>
+  <a href="./Authentiction for BQ final project/sign up.html"><button class="btn btn-signup">Sign Up</button></a>
+</div>
+</nav>
     <section class="filter-section">
-        <input type="text" placeholder="Search recipes..." class="search-bar">
+        <div class="hero-search">
+          <input
+            type="text"
+            placeholder="Search for recipes, ingredients, or cuisines..."/>
+          <button>Search</button>
+        </div>
         <div class="tags">
             <h4>Categories</h4>
             <p>Basics · Bread · Dinner · Side Dish</p>
@@ -269,26 +276,88 @@
       </div>
     </footer>
 
-    <script>
+<script>
+  // Search functionality
+  const searchInput = document.querySelector('.hero-search input');
+  const recipeCards = document.querySelectorAll('.recipe-card');
+
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+
+    recipeCards.forEach(card => {
+      const title = card.querySelector('h3').textContent.toLowerCase();
+      const desc = card.querySelector('p') ? card.querySelector('p').textContent.toLowerCase() : '';
+      
+      if (title.includes(query) || desc.includes(query)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+  <!-- Existing recipe card animation -->
+<script>
   const cards = document.querySelectorAll('.recipe-card');
-
   function revealCards() {
-    const triggerBottom = window.innerHeight * 0.85; // 85% of screen height
-
+    const triggerBottom = window.innerHeight * 0.85;
     cards.forEach(card => {
       const cardTop = card.getBoundingClientRect().top;
-
       if (cardTop < triggerBottom) {
         card.classList.add('show');
       } else {
-        card.classList.remove('show'); // remove if you want it to disappear again when scrolled up
+        card.classList.remove('show');
       }
     });
   }
-
   window.addEventListener('scroll', revealCards);
   window.addEventListener('load', revealCards);
 </script>
+
+<!-- Firebase auth script -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBwr1QnByKgaCq9aLq7q2dx_XXXim5FJlg",
+    authDomain: "recipehub-73d90.firebaseapp.com",
+    projectId: "recipehub-73d90",
+    storageBucket: "recipehub-73d90.firebasestorage.app",
+    messagingSenderId: "588795232623",
+    appId: "1:588795232623:web:2a0175a3890c20d9d7a89a",
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  const authButtonsContainer = document.getElementById("authButtons");
+
+  onAuthStateChanged(auth, (user) => {
+    authButtonsContainer.innerHTML = ""; // Clear any previous buttons
+
+    if (user) {
+      // User is logged in — show Logout button
+      const logoutBtn = document.createElement("button");
+      logoutBtn.textContent = "Logout";
+      logoutBtn.className = "btn btn-logout";
+      logoutBtn.style.marginLeft = "10px";
+      authButtonsContainer.appendChild(logoutBtn);
+
+      logoutBtn.addEventListener("click", () => {
+        signOut(auth).then(() => {
+          alert("You have been logged out!");
+          window.location.href = "../Authentiction for BQ final project/login.html";
+        });
+      });
+    } else {
+      // User is not logged in — redirect to login page
+      window.location.href = "../Authentiction for BQ final project/login.html";
+    }
+  });
+</script>
+
 
 </body>
 </html>

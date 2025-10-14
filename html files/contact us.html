@@ -273,6 +273,51 @@ footer {
   </style>
 </head>
 <body>
+
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBwr1QnByKgaCq9aLq7q2dx_XXXim5FJlg",
+    authDomain: "recipehub-73d90.firebaseapp.com",
+    projectId: "recipehub-73d90",
+    storageBucket: "recipehub-73d90.firebasestorage.app",
+    messagingSenderId: "588795232623",
+    appId: "1:588795232623:web:2a0175a3890c20d9d7a89a",
+    measurementId: "G-4Q6LX8MSPX"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  const authButtons = document.getElementById("authButtons");
+
+  onAuthStateChanged(auth, (user) => {
+    if (!user) {
+      // Redirect to login if not signed in
+      window.location.href = "../Authentiction for BQ final project/login.html";
+    } else {
+      // Show Logout button with consistent style
+      authButtons.innerHTML = `
+        <button class="btn btn-login" id="logoutBtn">Logout</button>
+      `;
+      const logoutBtn = document.getElementById("logoutBtn");
+
+      logoutBtn.addEventListener("click", () => {
+        signOut(auth).then(() => {
+          alert("You have been logged out!");
+          window.location.href = "../Authentiction for BQ final project/login.html";
+        });
+      });
+    }
+  });
+</script>
+
+
+
+
  <nav>
       <div class="logo">Recipe Hub</div>
       <ul class="nav-links" id="navLinks">
@@ -280,7 +325,7 @@ footer {
         <li><a href="recipe.html">Recipes</a></li>
         <li><a href="contact us.html">Contact Us</a></li>
       </ul>
-      <div class="nav-buttons">
+      <div class="nav-buttons" id="authButtons">
         <a href="../Authentiction for BQ final project/login.html"><button class="btn btn-login">Login</button></a>
         <a href="../Authentiction for BQ final project/sign up.html"><button class="btn btn-signup">Sign Up</button></a>
       </div>

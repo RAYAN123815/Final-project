@@ -283,21 +283,47 @@ footer {
       </div>
     </footer>
 
-  <script>
-    const signupForm = document.getElementById('signupForm');
-    const signupThankYou = document.getElementById('signupThankYou');
+<!-- Firebase Authentication -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
 
-    signupForm.addEventListener('submit', function(e){
+    const firebaseConfig = {
+      apiKey: "AIzaSyBwr1QnByKgaCq9aLq7q2dx_XXXim5FJlg",
+      authDomain: "recipehub-73d90.firebaseapp.com",
+      projectId: "recipehub-73d90",
+      storageBucket: "recipehub-73d90.firebasestorage.app",
+      messagingSenderId: "588795232623",
+      appId: "1:588795232623:web:2a0175a3890c20d9d7a89a",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const signupForm = document.getElementById("signupForm");
+    const signupThankYou = document.getElementById("signupThankYou");
+
+    signupForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-      if(!signupForm.checkValidity()){
-        signupForm.reportValidity();
-        return;
-      }
-      setTimeout(() => {
-        signupThankYou.style.display = 'block';
+      const email = signupForm.email.value;
+      const password = signupForm.password.value;
+
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+        signupThankYou.style.display = "block";
+        signupThankYou.textContent = "✅ Sign-up successful! Redirecting to login...";
         signupForm.reset();
-      }, 500);
+
+        // Redirect to login page after 2 seconds
+        setTimeout(() => {
+          window.location.href = "./login.html";
+        }, 2000);
+      } catch (error) {
+        alert("❌ Sign-up failed: " + error.message);
+      }
     });
   </script>
+
+
 </body>
 </html>

@@ -127,13 +127,38 @@ nav {
     padding: 20px;
 }
 
-.search-bar {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 5px;
+.hero-search {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  background: white;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
+
+.hero-search input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+}
+
+.hero-search button {
+  background: #fbbf24;
+  color: #1e3a8a;
+  padding: 1rem 2rem;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.hero-search button:hover {
+  background: #f59e0b;
+}
+
 
 .tags h4 {
     margin: 10px 0 5px;
