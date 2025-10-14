@@ -28,6 +28,16 @@
             placeholder="Search for recipes, ingredients, or cuisines..."/>
           <button>Search</button>
         </div>
+        <section class="recipe-form-section">
+  <h2 style="text-align: center; padding: 20px 0px;">Manage Recipes (CRUD)</h2>
+  <form id="recipeForm">
+    <input type="text" id="recipeTitle" placeholder="Recipe Title" required>
+    <input type="text" id="recipeDescription" placeholder="Description" required>
+    <input type="text" id="recipeImage" placeholder="Image URL" required>
+    <button type="submit" id="submitBtn">Add Recipe</button>
+  </form>
+</section>
+
         <div class="tags">
             <h4>Categories</h4>
             <p>Basics · Bread · Dinner · Side Dish</p>
@@ -36,7 +46,7 @@
         </div>
     </section>
 
-    <section class="recipes-grid">
+    <section class="recipes-grid" id="recipesGrid">
         <div class="recipe-card">
             <img src="../Recipe Images/recipe-image-1.jpg" alt="" height="280px">
             <h3>Basic Pizza Dough #2</h3>
@@ -276,46 +286,28 @@
       </div>
     </footer>
 
-<script>
-  // Search functionality
-  const searchInput = document.querySelector('.hero-search input');
-  const recipeCards = document.querySelectorAll('.recipe-card');
+<!-- 🔹 Firebase Initialization -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
 
-  searchInput.addEventListener('input', () => {
-    const query = searchInput.value.toLowerCase();
+  // Initialize Firebase
+  const firebaseConfig = {
+    apiKey: "AIzaSyBwr1QnByKgaCq9aLq7q2dx_XXXim5FJlg",
+    authDomain: "recipehub-73d90.firebaseapp.com",
+    projectId: "recipehub-73d90",
+    storageBucket: "recipehub-73d90.appspot.com",
+    messagingSenderId: "588795232623",
+    appId: "1:588795232623:web:2a0175a3890c20d9d7a89a",
+  };
 
-    recipeCards.forEach(card => {
-      const title = card.querySelector('h3').textContent.toLowerCase();
-      const desc = card.querySelector('p') ? card.querySelector('p').textContent.toLowerCase() : '';
-      
-      if (title.includes(query) || desc.includes(query)) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  });
+  export const app = initializeApp(firebaseConfig);
+  export const auth = getAuth(app);
+  export const db = getFirestore(app);
 </script>
 
-  <!-- Existing recipe card animation -->
-<script>
-  const cards = document.querySelectorAll('.recipe-card');
-  function revealCards() {
-    const triggerBottom = window.innerHeight * 0.85;
-    cards.forEach(card => {
-      const cardTop = card.getBoundingClientRect().top;
-      if (cardTop < triggerBottom) {
-        card.classList.add('show');
-      } else {
-        card.classList.remove('show');
-      }
-    });
-  }
-  window.addEventListener('scroll', revealCards);
-  window.addEventListener('load', revealCards);
-</script>
-
-<!-- Firebase auth script -->
+<!-- 🔹 Firebase Authentication -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
   import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
@@ -324,38 +316,147 @@
     apiKey: "AIzaSyBwr1QnByKgaCq9aLq7q2dx_XXXim5FJlg",
     authDomain: "recipehub-73d90.firebaseapp.com",
     projectId: "recipehub-73d90",
-    storageBucket: "recipehub-73d90.firebasestorage.app",
+    storageBucket: "recipehub-73d90.appspot.com",
     messagingSenderId: "588795232623",
     appId: "1:588795232623:web:2a0175a3890c20d9d7a89a",
   };
 
+  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
 
   const authButtonsContainer = document.getElementById("authButtons");
 
   onAuthStateChanged(auth, (user) => {
-    authButtonsContainer.innerHTML = ""; // Clear any previous buttons
+    authButtonsContainer.innerHTML = "";
 
     if (user) {
-      // User is logged in — show Logout button
+      // ✅ Show logout button
       const logoutBtn = document.createElement("button");
       logoutBtn.textContent = "Logout";
       logoutBtn.className = "btn btn-logout";
+      logoutBtn.style.background = "white";
+      logoutBtn.style.color = "black";
       logoutBtn.style.marginLeft = "10px";
-      authButtonsContainer.appendChild(logoutBtn);
 
       logoutBtn.addEventListener("click", () => {
-        signOut(auth).then(() => {
-          alert("You have been logged out!");
-          window.location.href = "../Authentiction for BQ final project/login.html";
-        });
+        signOut(auth)
+          .then(() => {
+            alert("You have been logged out!");
+            window.location.href = "../Authentiction for BQ final project/login.html";
+          })
+          .catch((error) => console.error("Logout error:", error));
       });
+
+      authButtonsContainer.appendChild(logoutBtn);
     } else {
-      // User is not logged in — redirect to login page
+      // 🚨 Redirect user if not logged in
       window.location.href = "../Authentiction for BQ final project/login.html";
     }
   });
+</script>
+
+
+<!-- 🔹 CRUD Functionality -->
+<script>
+  const form = document.getElementById("recipeForm");
+  const recipesGrid = document.querySelector(".recipes-grid");
+
+  // Load recipes from localStorage
+  let recipes = JSON.parse(localStorage.getItem("recipes")) || [];
+
+  function saveRecipes() {
+    localStorage.setItem("recipes", JSON.stringify(recipes));
+  }
+
+  function renderNewRecipes() {
+    // Remove any previously rendered dynamic cards (keep static ones)
+    document.querySelectorAll(".recipe-card.dynamic").forEach((card) => card.remove());
+
+    // Render all new recipes added via form
+    recipes.forEach((r, index) => {
+      const card = document.createElement("div");
+      card.classList.add("recipe-card", "dynamic");
+      card.innerHTML = `
+        <img src="${r.image}" alt="${r.title}" 
+             style="width:100%;height:250px;object-fit:cover;border-radius:10px;">
+        <h3>${r.title}</h3>
+        <p>${r.description}</p>
+        <div class="card-actions">
+          <button onclick="editRecipe(${index})">Edit</button>
+          <button onclick="deleteRecipe(${index})">Delete</button>
+        </div>
+      `;
+      recipesGrid.appendChild(card);
+    });
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const title = document.getElementById("recipeTitle").value.trim();
+    const description = document.getElementById("recipeDescription").value.trim();
+    const image = document.getElementById("recipeImage").value.trim();
+
+    if (!title || !description || !image) {
+      alert("Please fill all fields before adding a recipe!");
+      return;
+    }
+
+    recipes.push({ title, description, image });
+    saveRecipes();
+    renderNewRecipes();
+    form.reset();
+  });
+
+  window.editRecipe = function (index) {
+    const recipe = recipes[index];
+    const newTitle = prompt("Edit title:", recipe.title);
+    const newDesc = prompt("Edit description:", recipe.description);
+    if (newTitle && newDesc) {
+      recipes[index] = { ...recipe, title: newTitle, description: newDesc };
+      saveRecipes();
+      renderNewRecipes();
+    }
+  };
+
+  window.deleteRecipe = function (index) {
+    if (confirm("Delete this recipe?")) {
+      recipes.splice(index, 1);
+      saveRecipes();
+      renderNewRecipes();
+    }
+  };
+
+  renderNewRecipes(); // Render only dynamic recipes (keeps static ones intact)
+</script>
+
+<!-- 🔹 Search / Filter -->
+<script>
+  const searchInput = document.querySelector(".hero-search input");
+  const recipeCards = document.querySelectorAll(".recipe-card");
+
+  searchInput?.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase();
+    recipeCards.forEach((card) => {
+      const title = card.querySelector("h3").textContent.toLowerCase();
+      const desc = card.querySelector("p")?.textContent.toLowerCase() || "";
+      card.style.display = title.includes(query) || desc.includes(query) ? "block" : "none";
+    });
+  });
+</script>
+
+<!-- 🔹 Scroll Animation -->
+<script>
+  const cards = document.querySelectorAll(".recipe-card");
+  function revealCards() {
+    const triggerBottom = window.innerHeight * 0.85;
+    cards.forEach((card) => {
+      const cardTop = card.getBoundingClientRect().top;
+      card.classList.toggle("show", cardTop < triggerBottom);
+    });
+  }
+  window.addEventListener("scroll", revealCards);
+  window.addEventListener("load", revealCards);
 </script>
 
 
