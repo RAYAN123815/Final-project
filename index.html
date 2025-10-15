@@ -1,0 +1,406 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Hub - Delicious Recipes at Your Fingertips</title>
+    <link rel="stylesheet" href="./css file/home.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">Recipe Hub</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="./html files/recipe.html">Recipes</a></li>
+        <li><a href="./html files/contact us.html">Contact Us</a></li>
+      </ul>
+      <div class="nav-buttons" id="authButtons">
+        <a href="./Authentiction for BQ final project/login.html"><button class="btn btn-login">Login</button></a>
+        <a href="./Authentiction for BQ final project/sign up.html"><button class="btn btn-signup">Sign Up</button></a>
+      </div>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Discover Delicious Recipes</h1>
+        <p>
+          Your ultimate destination for amazing recipes from around the world.
+          Cook, share, and enjoy culinary adventures every day.
+        </p>
+        <button class="hero-btn">Explore Recipes</button>
+        <div class="hero-search">
+          <input
+            type="text"
+            placeholder="Search for recipes, ingredients, or cuisines..."
+          />
+          <button>Search</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured" id="recipes">
+      <h2 class="section-title">Featured Recipes</h2>
+      <p class="section-subtitle">
+        Handpicked recipes that you'll absolutely love
+      </p>
+      <div class="recipe-grid">
+        <div class="recipe-card">
+          <div
+            class="recipe-img"
+            style="background-image: url('https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&h=400&fit=crop');"
+          >
+            <span class="recipe-badge">Popular</span>
+          </div>
+          <div class="recipe-info">
+            <h3>Creamy Pasta Alfredo</h3>
+            <p>
+              Rich and creamy Italian pasta with parmesan cheese and garlic
+              butter sauce
+            </p>
+            <div class="recipe-meta">
+              <span class="recipe-time">⏱️ 30 min</span>
+              <span class="recipe-rating">⭐ 4.8</span>
+            </div>
+          </div>
+        </div>
+        <div class="recipe-card">
+          <div
+            class="recipe-img"
+            style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&h=400&fit=crop');"
+          >
+            <span class="recipe-badge">Trending</span>
+          </div>
+          <div class="recipe-info">
+            <h3>Classic Beef Burger</h3>
+            <p>Juicy homemade burger with fresh vegetables and secret sauce</p>
+            <div class="recipe-meta">
+              <span class="recipe-time">⏱️ 25 min</span>
+              <span class="recipe-rating">⭐ 4.9</span>
+            </div>
+          </div>
+        </div>
+        <div class="recipe-card">
+          <div
+            class="recipe-img"
+            style="background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&h=400&fit=crop');"
+          >
+            <span class="recipe-badge">New</span>
+          </div>
+          <div class="recipe-info">
+            <h3>Margherita Pizza</h3>
+            <p>
+              Traditional Italian pizza with fresh basil, mozzarella and
+              tomatoes
+            </p>
+            <div class="recipe-meta">
+              <span class="recipe-time">⏱️ 45 min</span>
+              <span class="recipe-rating">⭐ 4.7</span>
+            </div>
+          </div>
+        </div>
+        <div class="recipe-card">
+          <div
+            class="recipe-img"
+            style="background-image: url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500&h=400&fit=crop');"
+          ></div>
+          <div class="recipe-info">
+            <h3>Mediterranean Salad</h3>
+            <p>
+              Healthy Greek-style salad with feta cheese and olive oil dressing
+            </p>
+            <div class="recipe-meta">
+              <span class="recipe-time">⏱️ 15 min</span>
+              <span class="recipe-rating">⭐ 4.6</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="categories">
+      <h2 class="section-title">Browse by Category</h2>
+      <p class="section-subtitle">
+        Explore recipes from your favorite categories
+      </p>
+      <div class="category-grid">
+        <div class="category-card">
+          <div class="category-icon">🥘</div>
+          <h3>Main Dishes</h3>
+        </div>
+        <div class="category-card">
+          <div class="category-icon">🍰</div>
+          <h3>Desserts</h3>
+        </div>
+        <div class="category-card">
+          <div class="category-icon">🥗</div>
+          <h3>Salads</h3>
+        </div>
+        <div class="category-card">
+          <div class="category-icon">🍜</div>
+          <h3>Soups</h3>
+        </div>
+        <div class="category-card">
+          <div class="category-icon">🥤</div>
+          <h3>Beverages</h3>
+        </div>
+        <div class="category-card">
+          <div class="category-icon">🍪</div>
+          <h3>Snacks</h3>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-it-works">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">Get started in three simple steps</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Browse Recipes</h3>
+          <p>
+            Explore thousands of delicious recipes from our extensive
+            collection. Filter by cuisine, difficulty, or cooking time.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Save Favorites</h3>
+          <p>
+            Create your personal cookbook by bookmarking recipes you love.
+            Access them anytime, anywhere.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Start Cooking</h3>
+          <p>
+            Follow easy step-by-step instructions with videos and tips to create
+            restaurant-quality meals at home.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <h2 class="section-title">Join Our Community</h2>
+      <p class="section-subtitle">Thousands of home cooks trust Recipe Hub</p>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">12K+</div>
+          <div class="stat-label">Recipes</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">85K+</div>
+          <div class="stat-label">Active Users</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">250K+</div>
+          <div class="stat-label">Reviews</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">4.9★</div>
+          <div class="stat-label">Average Rating</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <h2 class="section-title">What Our Users Say</h2>
+      <p class="section-subtitle">Real stories from our community</p>
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">S</div>
+            <div>
+              <div class="testimonial-author">Sarah Ahmed</div>
+              <div class="testimonial-role">Home Cook</div>
+            </div>
+          </div>
+          <p class="testimonial-text">
+            "Recipe Hub has completely transformed my cooking! The instructions
+            are crystal clear, and every dish I've tried has turned out perfect.
+            My family loves it!"
+          </p>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">A</div>
+            <div>
+              <div class="testimonial-author">Ali Khan</div>
+              <div class="testimonial-role">Food Enthusiast</div>
+            </div>
+          </div>
+          <p class="testimonial-text">
+            "I love the diversity of recipes here. From Pakistani dishes to
+            international cuisines, everything is so easy to follow. This is my
+            go-to cooking resource!"
+          </p>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">F</div>
+            <div>
+              <div class="testimonial-author">Fatima Hussain</div>
+              <div class="testimonial-role">Beginner Cook</div>
+            </div>
+          </div>
+          <p class="testimonial-text">
+            "As someone who's just learning to cook, this website has been a
+            lifesaver. The step-by-step guides make everything simple and
+            achievable!"
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <h2>Get Weekly Recipe Updates</h2>
+      <p>
+        Subscribe to our newsletter and receive fresh recipes, cooking tips, and
+        exclusive content every week!
+      </p>
+      <form class="newsletter-form">
+        <input
+          type="email"
+          class="newsletter-input"
+          placeholder="Enter your email address"
+          required
+        />
+        <button type="submit" class="newsletter-btn">Subscribe Now</button>
+      </form>
+    </section>
+
+    <footer id="contact">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Recipe Hub</h3>
+          <p>
+            Recipe Hub is your ultimate destination for discovering and sharing
+            delicious recipes from around the world. We bring together food
+            lovers and home cooks to create an amazing culinary community.
+          </p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/groups/313139035502837" target="_blank" class="social-icon" title="Facebook">
+              <img src="./social logos/download-Photoroom.png" alt="Facebook" style="background-color: rgb(15, 23, 42);" />
+            </a>
+            <a href="https://www.instagram.com/recipe_hub_/" target="_blank" class="social-icon" title="Instagram">
+              <img src="./social logos/ins-Photoroom.png" alt="Instagram" style="background-color: rgb(15, 23, 42);"/>
+            </a>
+            <a href="https://x.com/recipehub7800" target="_blank" class="social-icon" title="Twitter">
+              <img src="./social logos/X-Photoroom.png" alt="Twitter"  style="background-color: rgb(15, 23, 42);"/>
+            </a>
+            <a href="https://www.pinterest.com/recipehubs/" target="_blank" class="social-icon" title="Pinterest">
+              <img src="./social logos/pins-Photoroom.png" alt="Pinterest" style="background-color: rgb(15, 23, 42);"/>
+            </a>
+            <a href="https://www.youtube.com/@TheRecipeHub292" target="_blank" class="social-icon" title="YouTube">
+              <img src="./social logos/YT-Photoroom.png" alt="YouTube" style="background-color: rgb(15, 23, 42);"/>
+            </a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#recipes">Recipes</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Recipe Hub. All rights reserved. Made with ❤️ for food lovers worldwide.</p>
+      </div>
+    </footer>
+
+<script>
+  // Search functionality
+  const searchInput = document.querySelector('.hero-search input');
+  const recipeCards = document.querySelectorAll('.recipe-card');
+
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+
+    recipeCards.forEach(card => {
+      const title = card.querySelector('h3').textContent.toLowerCase();
+      const desc = card.querySelector('p') ? card.querySelector('p').textContent.toLowerCase() : '';
+      
+      if (title.includes(query) || desc.includes(query)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+    <script>
+      function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("active");
+      }
+
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          document.getElementById("navLinks").classList.remove("active");
+        });
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      document.querySelector(".newsletter-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        alert("Thank you for subscribing! Welcome to Recipe Hub community 🎉");
+        this.reset();
+      });
+    </script>
+
+    <!-- Firebase auth script -->
+ <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBwr1QnByKgaCq9aLq7q2dx_XXXim5FJlg",
+  authDomain: "recipehub-73d90.firebaseapp.com",
+  projectId: "recipehub-73d90",
+  storageBucket: "recipehub-73d90.firebasestorage.app",
+  messagingSenderId: "588795232623",
+  appId: "1:588795232623:web:2a0175a3890c20d9d7a89a",
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+const authButtons = document.getElementById("authButtons");
+
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    // redirect to login if not logged in
+    window.location.href = "./Authentiction for BQ final project/login.html";
+  } else {
+    // show logout button
+    authButtons.innerHTML = `<button class="btn btn-login" id="logoutBtn">Logout</button>`;
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      signOut(auth).then(() => {
+        alert("You have been logged out!");
+        window.location.href = "./Authentiction for BQ final project/login.html";
+      });
+    });
+  }
+});
+</script>
+
+  </body>
+</html>

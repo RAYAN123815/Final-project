@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Hub | Recipe</title>
+    <link rel="stylesheet" href="../css file/recipe.css">
+</head>
+<body>
+   <nav>
+  <div class="logo">Recipe Hub</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="recipe.html">Recipes</a></li>
+    <li><a href="contact us.html">Contact Us</a></li>
+  </ul>
+
+ <div class="nav-buttons" id="authButtons">
+  <!-- Login/Signup buttons will be replaced with Logout if user is logged in -->
+  <a href="./Authentiction for BQ final project/login.html"><button class="btn btn-login">Login</button></a>
+  <a href="./Authentiction for BQ final project/sign up.html"><button class="btn btn-signup">Sign Up</button></a>
+</div>
+</nav>
+    <section class="filter-section">
+        <div class="hero-search">
+          <input
+            type="text"
+            placeholder="Search for recipes, ingredients, or cuisines..."/>
+          <button>Search</button>
+        </div>
+        <section class="recipe-form-section">
+  <h2 style="text-align: center; padding: 20px 0px;">Manage Recipes (CRUD)</h2>
+  <form id="recipeForm">
+    <input type="text" id="recipeTitle" placeholder="Recipe Title" required>
+    <input type="text" id="recipeDescription" placeholder="Description" required>
+    <input type="text" id="recipeImage" placeholder="Image URL" required>
+    <button type="submit" id="submitBtn">Add Recipe</button>
+  </form>
+</section>
+
+        <div class="tags">
+            <h4>Categories</h4>
+            <p>Basics · Bread · Dinner · Side Dish</p>
+            <h4>Tags</h4>
+            <p>Basic · Italian · Dinner · Mixer · Asian · Bread · Toast · Salad · Soup · Baking</p>
+        </div>
+    </section>
+
+    <section class="recipes-grid" id="recipesGrid">
+        <div class="recipe-card">
+            <img src="../Recipe Images/recipe-image-1.jpg" alt="" height="280px">
+            <h3>Basic Pizza Dough #2</h3>
+            <p>A tried-and-tested Neapolitan pizza dough which is quick to prepare</p>
+            <a href="#">Read More</a>
+        </div>
+
+        <div class="recipe-card">
+            <img src="../Recipe Images/recipe-image-2.jpg" alt="" height="280px">
+            <h3>Pear and Ricotta Tart</h3>
+            <a href="#">Read More</a>
+        </div>
+
+        <div class="recipe-card">
+            <img src="../Recipe Images/recipe-image-3.jpg" alt="" height="280px">
+            <h3>Tipo 00 – Duck Ragu w/Parmesan Gnocchi</h3>
+            <a href="#">Read More</a>
+        </div>
+
+        <div class="recipe-card">
+            <img src="../Recipe Images/recipe-image-4.jpg" alt="" height="280px">
+            <h3>Vegetarian Chilli</h3>
+            <a href="#">Read More</a>
+        </div>
+
+        <div class="recipe-card">
+            <img src="../Recipe Images/recipe-image-5.jpg" alt="" height="280px">
+            <h3>Japanese Curry</h3>
+            <a href="#">Read More</a>
+        </div>
+
+        <div class="recipe-card">
+            <img src="../Recipe Images/recipe-image-6.jpg" alt="" height="280px">
+            <h3>Dan Dan Mien (soupy)</h3>
+            <a href="#">Read More</a>
+        </div>
+
+        <div class="recipe-card">
+            <img src="../Recipe Images/recipe-image-7.jpg" alt="" height="280px">
+            <h3>Honey & Leek Grain Salad w/Roast Pumpkin and Halloumi</h3>
+            <a href="#">Read More</a>
+        </div>
+
+        <div class="recipe-card">
+            <img src="../Recipe Images/recipe-image-8.jpg" alt="" height="280px">
+            <h3>Sautéed Green Beans</h3>
+            <p>Side Dish - Green Beans Saute’d with butter - c’est france.</p>
+            <a href="#">Read More</a>
+        </div>
+
+        <div class="recipe-card">
+            <img src="../Recipe Images/recipe-image-9.jpg" alt="">
+            <h3>Koresh-e Gormeh Sabzi</h3>
+            <a href="#">Read More</a>
+        </div>
+
+        <div class="recipe-card">
+            <img src="../Recipe Images/recipe-image-10.jpg" alt="">
+            <h3>Basic Bread #2</h3>
+            <p>A rustic Italian ciabatta style loaf good fresh or toasted</p>
+            <a href="#">Read More</a>
+        </div>
+    </section>
+    <section class="featured-recipes">
+  <h2>Chef’s Picks</h2>
+
+  <div class="featured-container">
+
+    <div class="featured-card">
+      <img src="../Recipe Images/recipe-image-1.jpg" alt="Basic Pizza Dough #2">
+      <div class="featured-text">
+        <h3>Basic Pizza Dough #2</h3>
+        <p>This Neapolitan-style dough is light, airy, and crisp — perfect for any homemade pizza. With just a few ingredients and a short rise, it delivers authentic Italian flavor every time.</p>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <img src="../Recipe Images/recipe-image-5.jpg" alt="Japanese Curry">
+      <div class="featured-text">
+        <h3>Japanese Curry</h3>
+        <p>A comforting and mildly spiced curry dish that balances savory and sweet flavors. Served over rice, it’s the ultimate cozy meal for any season.</p>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <img src="../Recipe Images/recipe-image-7.jpg" alt="Honey & Leek Grain Salad">
+      <div class="featured-text">
+        <h3>Honey & Leek Grain Salad</h3>
+        <p>This vibrant salad combines roasted pumpkin, grilled halloumi, and nutty grains with a drizzle of honey-leek dressing — a delightful mix of texture and taste.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <section class="how-it-works">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">Get started in three simple steps</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Browse Recipes</h3>
+          <p>
+            Explore thousands of delicious recipes from our extensive
+            collection. Filter by cuisine, difficulty, or cooking time.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Save Favorites</h3>
+          <p>
+            Create your personal cookbook by bookmarking recipes you love.
+            Access them anytime, anywhere.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Start Cooking</h3>
+          <p>
+            Follow easy step-by-step instructions with videos and tips to create
+            restaurant-quality meals at home.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <h2 class="section-title">Join Our Community</h2>
+      <p class="section-subtitle">Thousands of home cooks trust Recipe Hub</p>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">12K+</div>
+          <div class="stat-label">Recipes</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">85K+</div>
+          <div class="stat-label">Active Users</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">250K+</div>
+          <div class="stat-label">Reviews</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">4.9★</div>
+          <div class="stat-label">Average Rating</div>
+        </div>
+      </div>
+    </section>
+
+     <section class="testimonials">
+      <h2 class="section-title">What Our Users Say</h2>
+      <p class="section-subtitle">Real stories from our community</p>
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">S</div>
+            <div>
+              <div class="testimonial-author">Sarah Ahmed</div>
+              <div class="testimonial-role">Home Cook</div>
+            </div>
+          </div>
+          <p class="testimonial-text">
+            "Recipe Hub has completely transformed my cooking! The instructions
+            are crystal clear, and every dish I've tried has turned out perfect.
+            My family loves it!"
+          </p>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">A</div>
+            <div>
+              <div class="testimonial-author">Ali Khan</div>
+              <div class="testimonial-role">Food Enthusiast</div>
+            </div>
+          </div>
+          <p class="testimonial-text">
+            "I love the diversity of recipes here. From Pakistani dishes to
+            international cuisines, everything is so easy to follow. This is my
+            go-to cooking resource!"
+          </p>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">F</div>
+            <div>
+              <div class="testimonial-author">Fatima Hussain</div>
+              <div class="testimonial-role">Beginner Cook</div>
+            </div>
+          </div>
+          <p class="testimonial-text">
+            "As someone who's just learning to cook, this website has been a
+            lifesaver. The step-by-step guides make everything simple and
+            achievable!"
+          </p>
+        </div>
+      </div>
+    </section>
+
+     <footer id="contact">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Recipe Hub</h3>
+          <p>
+            Recipe Hub is your ultimate destination for discovering and sharing
+            delicious recipes from around the world. We bring together food
+            lovers and home cooks to create an amazing culinary community.
+          </p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/groups/313139035502837" target="_blank" class="social-icon" title="Facebook">
+              <img src="../social logos/download-Photoroom.png" alt="Facebook" style="background-color: rgb(15, 23, 42);" />
+            </a>
+            <a href="https://www.instagram.com/recipe_hub_/" target="_blank" class="social-icon" title="Instagram">
+              <img src="../social logos/ins-Photoroom.png" alt="Instagram" style="background-color: rgb(15, 23, 42);"/>
+            </a>
+            <a href="https://x.com/recipehub7800" target="_blank" class="social-icon" title="Twitter">
+              <img src="../social logos/X-Photoroom.png" alt="Twitter"  style="background-color: rgb(15, 23, 42);"/>
+            </a>
+            <a href="https://www.pinterest.com/recipehubs/" target="_blank" class="social-icon" title="Pinterest">
+              <img src="../social logos/pins-Photoroom.png" alt="Pinterest" style="background-color: rgb(15, 23, 42);"/>
+            </a>
+            <a href="https://www.youtube.com/@TheRecipeHub292" target="_blank" class="social-icon" title="YouTube">
+              <img src="../social logos/YT-Photoroom.png" alt="YouTube" style="background-color: rgb(15, 23, 42);"/>
+            </a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#recipes">Recipes</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Recipe Hub. All rights reserved. Made with ❤️ for food lovers worldwide.</p>
+      </div>
+    </footer>
+
+<!-- 🔹 Firebase Initialization -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
+
+  // Initialize Firebase
+  const firebaseConfig = {
+    apiKey: "AIzaSyBwr1QnByKgaCq9aLq7q2dx_XXXim5FJlg",
+    authDomain: "recipehub-73d90.firebaseapp.com",
+    projectId: "recipehub-73d90",
+    storageBucket: "recipehub-73d90.appspot.com",
+    messagingSenderId: "588795232623",
+    appId: "1:588795232623:web:2a0175a3890c20d9d7a89a",
+  };
+
+  export const app = initializeApp(firebaseConfig);
+  export const auth = getAuth(app);
+  export const db = getFirestore(app);
+</script>
+
+<!-- 🔹 Firebase Authentication -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBwr1QnByKgaCq9aLq7q2dx_XXXim5FJlg",
+    authDomain: "recipehub-73d90.firebaseapp.com",
+    projectId: "recipehub-73d90",
+    storageBucket: "recipehub-73d90.appspot.com",
+    messagingSenderId: "588795232623",
+    appId: "1:588795232623:web:2a0175a3890c20d9d7a89a",
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  const authButtonsContainer = document.getElementById("authButtons");
+
+  onAuthStateChanged(auth, (user) => {
+    authButtonsContainer.innerHTML = "";
+
+    if (user) {
+      // ✅ Show logout button
+      const logoutBtn = document.createElement("button");
+      logoutBtn.textContent = "Logout";
+      logoutBtn.className = "btn btn-logout";
+      logoutBtn.style.background = "white";
+      logoutBtn.style.color = "black";
+      logoutBtn.style.marginLeft = "10px";
+
+      logoutBtn.addEventListener("click", () => {
+        signOut(auth)
+          .then(() => {
+            alert("You have been logged out!");
+            window.location.href = "../Authentiction for BQ final project/login.html";
+          })
+          .catch((error) => console.error("Logout error:", error));
+      });
+
+      authButtonsContainer.appendChild(logoutBtn);
+    } else {
+      // 🚨 Redirect user if not logged in
+      window.location.href = "../Authentiction for BQ final project/login.html";
+    }
+  });
+</script>
+
+
+<!-- 🔹 CRUD Functionality -->
+<script>
+  const form = document.getElementById("recipeForm");
+  const recipesGrid = document.querySelector(".recipes-grid");
+
+  // Load recipes from localStorage
+  let recipes = JSON.parse(localStorage.getItem("recipes")) || [];
+
+  function saveRecipes() {
+    localStorage.setItem("recipes", JSON.stringify(recipes));
+  }
+
+  function renderNewRecipes() {
+    // Remove any previously rendered dynamic cards (keep static ones)
+    document.querySelectorAll(".recipe-card.dynamic").forEach((card) => card.remove());
+
+    // Render all new recipes added via form
+    recipes.forEach((r, index) => {
+      const card = document.createElement("div");
+      card.classList.add("recipe-card", "dynamic");
+      card.innerHTML = `
+        <img src="${r.image}" alt="${r.title}" 
+             style="width:100%;height:250px;object-fit:cover;border-radius:10px;">
+        <h3>${r.title}</h3>
+        <p>${r.description}</p>
+        <div class="card-actions">
+          <button onclick="editRecipe(${index})">Edit</button>
+          <button onclick="deleteRecipe(${index})">Delete</button>
+        </div>
+      `;
+      recipesGrid.appendChild(card);
+    });
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const title = document.getElementById("recipeTitle").value.trim();
+    const description = document.getElementById("recipeDescription").value.trim();
+    const image = document.getElementById("recipeImage").value.trim();
+
+    if (!title || !description || !image) {
+      alert("Please fill all fields before adding a recipe!");
+      return;
+    }
+
+    recipes.push({ title, description, image });
+    saveRecipes();
+    renderNewRecipes();
+    form.reset();
+  });
+
+  window.editRecipe = function (index) {
+    const recipe = recipes[index];
+    const newTitle = prompt("Edit title:", recipe.title);
+    const newDesc = prompt("Edit description:", recipe.description);
+    if (newTitle && newDesc) {
+      recipes[index] = { ...recipe, title: newTitle, description: newDesc };
+      saveRecipes();
+      renderNewRecipes();
+    }
+  };
+
+  window.deleteRecipe = function (index) {
+    if (confirm("Delete this recipe?")) {
+      recipes.splice(index, 1);
+      saveRecipes();
+      renderNewRecipes();
+    }
+  };
+
+  renderNewRecipes(); // Render only dynamic recipes (keeps static ones intact)
+</script>
+
+<!-- 🔹 Search / Filter -->
+<script>
+  const searchInput = document.querySelector(".hero-search input");
+  const recipeCards = document.querySelectorAll(".recipe-card");
+
+  searchInput?.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase();
+    recipeCards.forEach((card) => {
+      const title = card.querySelector("h3").textContent.toLowerCase();
+      const desc = card.querySelector("p")?.textContent.toLowerCase() || "";
+      card.style.display = title.includes(query) || desc.includes(query) ? "block" : "none";
+    });
+  });
+</script>
+
+<!-- 🔹 Scroll Animation -->
+<script>
+  const cards = document.querySelectorAll(".recipe-card");
+  function revealCards() {
+    const triggerBottom = window.innerHeight * 0.85;
+    cards.forEach((card) => {
+      const cardTop = card.getBoundingClientRect().top;
+      card.classList.toggle("show", cardTop < triggerBottom);
+    });
+  }
+  window.addEventListener("scroll", revealCards);
+  window.addEventListener("load", revealCards);
+</script>
+
+
+</body>
+</html>
